@@ -1,6 +1,6 @@
 package com.test.controllers;
 
-import com.test.domain.User;
+import com.test.domain.AppUser;
 import com.test.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ public class MainController {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-        User n = new User();
+        AppUser n = new AppUser();
         n.setName(name);
         n.setEmail(email);
         userRepository.save(n);
@@ -29,7 +29,7 @@ public class MainController {
 
     @GetMapping(path = "/all")
     public @ResponseBody
-    Iterable<User> getAllUsers() {
+    Iterable<AppUser> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }
