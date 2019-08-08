@@ -20,10 +20,10 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,21 +38,28 @@
         </dependency>
 
         <!-- Use MySQL Connector-J -->
-        <!--        <dependency>-->
-        <!--            <groupId>mysql</groupId>-->
-        <!--            <artifactId>mysql-connector-java</artifactId>-->
-        <!--        </dependency>-->
+        <!--                <dependency>-->
+        <!--                    <groupId>mysql</groupId>-->
+        <!--                    <artifactId>mysql-connector-java</artifactId>-->
+        <!--                </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <!--                <dependency>-->
+        <!--                    <groupId>mysql</groupId>-->
+        <!--                    <artifactId>mysql-connector-java</artifactId>-->
+        <!--                    <version>5.1.39</version>-->
+        <!--                </dependency>-->
         <!--        <dependency>-->
-        <!--            <groupId>mysql</groupId>-->
-        <!--            <artifactId>mysql-connector-java</artifactId>-->
-        <!--            <version>5.1.39</version>-->
+        <!--            <groupId>org.postgresql</groupId>-->
+        <!--            <artifactId>postgresql</artifactId>-->
+        <!--            <scope>runtime</scope>-->
         <!--        </dependency>-->
+
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
             <scope>runtime</scope>
+            <version>1.4.193</version>
         </dependency>
 
         <dependency>
