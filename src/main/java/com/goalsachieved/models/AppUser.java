@@ -1,8 +1,9 @@
-package com.test.models;
+package com.goalsachieved.models;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 //@Table(name = "users")
 @Entity // This tells Hibernate to make a table out of this class
@@ -13,11 +14,6 @@ public class AppUser {
 
     private String name;
 
-    @ElementCollection(targetClass = Goal.class, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_goals",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "goal_id"))
-    private Set<Goal> goals;
 
 
     public Long getId() {

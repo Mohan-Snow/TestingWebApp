@@ -1,9 +1,10 @@
-package com.test.models;
+package com.goalsachieved.models;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
+@Entity
 public class Goal {
 
     @Id
@@ -13,14 +14,13 @@ public class Goal {
     private String description;
     private GoalType type;
 
-    private List<String> notes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "goals")
+    @ManyToOne
     private AppUser user;
 
     public Goal() {
     }
 
+    @Autowired
     public Goal(String description, GoalType type, AppUser user) {
         this.description = description;
         this.type = type;
@@ -30,24 +30,25 @@ public class Goal {
     public Long getId() {
         return id;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public GoalType getType() {
-        return type;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
-
+    public String getDescription() {
+        return description;
+    }
     public void setDescription(String description) {
         this.description = description;
     }
-
+    public GoalType getType() {
+        return type;
+    }
     public void setType(GoalType type) {
         this.type = type;
+    }
+    public AppUser getUser() {
+        return user;
+    }
+    public void setUser(AppUser user) {
+        this.user = user;
     }
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding Page</title>
+</head>
+<body>
+<h1>Add a goal</h1>
+<div>
+    <form method="post">
+        <input type="text" name="description" placeholder="Enter a description">
+        <input type="text" name="goalType" placeholder="Enter a goal type">
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+        <button type="submit">Add</button>
+    </form>
+</div>
+</body>
+</html>
