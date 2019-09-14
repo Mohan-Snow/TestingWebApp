@@ -13,6 +13,7 @@ public class GoalService implements BasicService {
 
     @Override
     public void add(Goal goal) {
+        System.out.println("SAVING a goal in GoalService");
         goalRepo.save(goal);
     }
 

@@ -7,34 +7,39 @@ import com.goalsachieved.services.BasicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GoalController {
 
-    private BasicService basicService;
+    private BasicService service;
 
     @Autowired
     public GoalController(@Qualifier("goalService") BasicService basicService) {
-        this.basicService = basicService;
+        this.service = basicService;
     }
 
-    @GetMapping("/demo")
+    @GetMapping("/test")
+    public String test() {
+        return "demo";
+    }
+
+    @PostMapping
     public String addGoal(@RequestParam String description,
-                          @RequestParam AppUser user,
-                          @RequestParam String type,
-                          Model model) {
+                          @RequestParam String goalType,
+                          @RequestParam String userName) {
+
         GoalType gType;
-        if (type.equals("sub")) {
+        if (goalType.equals("sub")) {
             gType = GoalType.SUB_GOAL;
-        } else if (type.equals("main")) {
+        } else if (goalType.equals("main")) {
             gType = GoalType.MAIN_GOAL;
         } else {
             return "error_page";
         }
-        basicService.add(new Goal(description, gType, user));
+        service.add(new Goal(description, gType, new AppUser(userName)));
         return "demo";
     }
 }

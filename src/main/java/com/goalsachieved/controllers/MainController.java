@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(path = "/") // This means URL's start with /demo (after Application path)
+@RequestMapping(path = "/") // This means URL's start with / (after Application path)
 public class MainController {
 
     @GetMapping("/")

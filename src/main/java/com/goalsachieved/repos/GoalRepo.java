@@ -11,8 +11,8 @@ public interface GoalRepo extends CrudRepository<Goal, Long> {
     <S extends Goal> S save(S s);
 
     @Override
-    Optional<Goal> findById(Long aLong);
+    Optional<Goal> findById(Long id);
 
     @Override
-    void deleteById(Long aLong);
+    void deleteById(Long id);
 }

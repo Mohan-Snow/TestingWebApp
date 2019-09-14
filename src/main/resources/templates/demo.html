@@ -6,8 +6,10 @@
 </head>
 <body>
 <h1>Add a goal</h1>
+
 <div>
     <form method="post">
+        <input type="text" name="userName" placeholder="Enter your name">
         <input type="text" name="description" placeholder="Enter a description">
         <input type="text" name="goalType" placeholder="Enter a goal type">
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>

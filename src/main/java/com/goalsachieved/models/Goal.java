@@ -14,13 +14,13 @@ public class Goal {
     private String description;
     private GoalType type;
 
+    @Autowired
     @ManyToOne
     private AppUser user;
 
     public Goal() {
     }
 
-    @Autowired
     public Goal(String description, GoalType type, AppUser user) {
         this.description = description;
         this.type = type;
