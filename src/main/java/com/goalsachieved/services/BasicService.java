@@ -11,4 +11,7 @@ public interface BasicService {
     void delete(Long id);
 
     Goal show(Long id);
+
+    Iterable<Goal> showAll();
+
 }

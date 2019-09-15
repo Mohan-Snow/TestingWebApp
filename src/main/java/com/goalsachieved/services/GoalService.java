@@ -31,4 +31,9 @@ public class GoalService implements BasicService {
     public Goal show(Long id) {
         return goalRepo.findById(id).get();
     }
+
+    @Override
+    public Iterable<Goal> showAll() {
+        return goalRepo.findAll();
+    }
 }

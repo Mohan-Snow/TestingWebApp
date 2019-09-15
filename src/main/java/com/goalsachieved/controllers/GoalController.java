@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Map;
+
 @Controller
 public class GoalController {
 
@@ -29,7 +31,8 @@ public class GoalController {
     @PostMapping
     public String addGoal(@RequestParam String description,
                           @RequestParam String goalType,
-                          @RequestParam String userName) {
+                          @RequestParam String userName,
+                          Map<String, Object> model) {
 
         GoalType gType;
         if (goalType.equals("sub")) {
@@ -40,6 +43,9 @@ public class GoalController {
             return "error_page";
         }
         service.add(new Goal(description, gType, new AppUser(userName)));
+
+        Iterable<Goal> goals = service.showAll();
+        model.put("goals", goals);
         return "demo";
     }
 }

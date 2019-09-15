@@ -15,4 +15,28 @@ public interface GoalRepo extends CrudRepository<Goal, Long> {
 
     @Override
     void deleteById(Long id);
+
+    @Override
+    <S extends Goal> Iterable<S> saveAll(Iterable<S> iterable);
+
+    @Override
+    boolean existsById(Long aLong);
+
+    @Override
+    Iterable<Goal> findAll();
+
+    @Override
+    Iterable<Goal> findAllById(Iterable<Long> iterable);
+
+    @Override
+    long count();
+
+    @Override
+    void delete(Goal goal);
+
+    @Override
+    void deleteAll(Iterable<? extends Goal> iterable);
+
+    @Override
+    void deleteAll();
 }

@@ -15,7 +15,7 @@ public class Goal {
     private GoalType type;
 
     @Autowired
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private AppUser user;
 
     public Goal() {
