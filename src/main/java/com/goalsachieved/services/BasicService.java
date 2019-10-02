@@ -12,6 +12,6 @@ public interface BasicService {
 
     Goal show(Long id);
 
-    Iterable<Goal> showAll();
+    Iterable<Goal> getAll();
 
 }

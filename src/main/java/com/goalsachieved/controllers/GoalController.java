@@ -28,12 +28,13 @@ public class GoalController {
         return "demo";
     }
 
-    @PostMapping
+    @PostMapping("/test")
     public String addGoal(@RequestParam String description,
                           @RequestParam String goalType,
                           @RequestParam String userName,
                           Map<String, Object> model) {
 
+        // for setting the state
         GoalType gType;
         if (goalType.equals("sub")) {
             gType = GoalType.SUB_GOAL;
@@ -44,8 +45,10 @@ public class GoalController {
         }
         service.add(new Goal(description, gType, new AppUser(userName)));
 
-        Iterable<Goal> goals = service.showAll();
+        // for mapping
+        Iterable<Goal> goals = service.getAll();
         model.put("goals", goals);
+//        return "redirect:/";
         return "demo";
     }
 }

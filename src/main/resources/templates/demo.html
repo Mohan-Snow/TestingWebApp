@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Adding Page</title>
@@ -16,6 +16,27 @@
         <button type="submit">Add</button>
     </form>
 </div>
+<br>
+
+<h1>Goals list: </h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="goal:${goals}">
+        <td th:text="${goal.user.name}">name</td>
+        <td th:text="${goal.description}">description</td>
+        <td th:text="${goal.type}">type</td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/">redirect to greeting</a>
 
 
 </body>

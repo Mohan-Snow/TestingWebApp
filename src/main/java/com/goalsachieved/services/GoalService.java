@@ -33,7 +33,7 @@ public class GoalService implements BasicService {
     }
 
     @Override
-    public Iterable<Goal> showAll() {
+    public Iterable<Goal> getAll() {
         return goalRepo.findAll();
     }
 }
