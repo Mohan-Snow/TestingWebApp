@@ -2,27 +2,33 @@ package com.goalsachieved.models;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-//@Table(name = "users")
+
 @Entity // This tells Hibernate to make a table out of this class
 @Component
-public class AppUser {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    //можно не указывать Column name, если оно совпадает с названием столбца в таблице
+    @Column(name = "name")
     private String name;
 
-    public AppUser() {
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Goal> goals;
+
+    public User() {
     }
 
-    public AppUser(String name) {
+    public User(String name) {
         this.name = name;
+        goals = new HashSet<>();
     }
 
     public Long getId() {
@@ -41,3 +47,4 @@ public class AppUser {
         this.name = name;
     }
 }
+

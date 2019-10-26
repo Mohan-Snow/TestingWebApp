@@ -1,20 +1,20 @@
 package com.goalsachieved.repos;
 
-import com.goalsachieved.models.AppUser;
+import com.goalsachieved.models.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface UserRepo extends CrudRepository<AppUser, Long> {
+public interface UserRepo extends CrudRepository<User, Long> {
 
     @Override
-    <S extends AppUser> S save(S s);
+    <S extends User> S save(S s);
 
     @Override
-    Optional<AppUser> findById(Long aLong);
+    Optional<User> findById(Long aLong);
 
     @Override
-    Iterable<AppUser> findAll();
+    Iterable<User> findAll();
 
     @Override
     void deleteById(Long aLong);

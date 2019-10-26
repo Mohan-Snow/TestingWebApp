@@ -1,8 +1,8 @@
 package com.goalsachieved.controllers;
 
-import com.goalsachieved.models.AppUser;
 import com.goalsachieved.models.Goal;
 import com.goalsachieved.models.GoalType;
+import com.goalsachieved.models.User;
 import com.goalsachieved.services.BasicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -43,7 +43,7 @@ public class GoalController {
         } else {
             return "error_page";
         }
-        service.add(new Goal(description, gType, new AppUser(userName)));
+        service.add(new Goal(description, gType, new User(userName)));
 
         // for mapping
         Iterable<Goal> goals = service.getAll();

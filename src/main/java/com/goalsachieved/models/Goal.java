@@ -15,13 +15,14 @@ public class Goal {
     private GoalType type;
 
     @Autowired
-    @ManyToOne(cascade = {CascadeType.ALL})
-    private AppUser user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Goal() {
     }
 
-    public Goal(String description, GoalType type, AppUser user) {
+    public Goal(String description, GoalType type, User user) {
         this.description = description;
         this.type = type;
         this.user = user;
@@ -45,10 +46,10 @@ public class Goal {
     public void setType(GoalType type) {
         this.type = type;
     }
-    public AppUser getUser() {
+    public User getUser() {
         return user;
     }
-    public void setUser(AppUser user) {
+    public void setUser(User user) {
         this.user = user;
     }
 }
