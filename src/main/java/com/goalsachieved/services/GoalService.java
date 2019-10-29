@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class GoalService implements BasicService {
 
+    private GoalRepo goalRepo;
+
     @Autowired
-    GoalRepo goalRepo;
+    public GoalService(GoalRepo goalRepo) {
+        this.goalRepo = goalRepo;
+    }
 
     @Override
     public void add(Goal goal) {
