@@ -1,13 +1,12 @@
 package com.goalsachieved.services;
 
-import com.goalsachieved.models.Goal;
 import com.goalsachieved.models.User;
 import com.goalsachieved.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserService implements BasicService<User> {
 
     private UserRepo userRepo;
 
@@ -29,11 +28,11 @@ public class UserService {
 
     }
 
-    public Goal show(Long id) {
+    public User show(Long id) {
         return null;
     }
 
-    public Iterable<Goal> getAll() {
+    public Iterable<User> getAll() {
         return null;
     }
 }

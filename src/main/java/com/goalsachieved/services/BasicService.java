@@ -1,17 +1,15 @@
 package com.goalsachieved.services;
 
-import com.goalsachieved.models.Goal;
+public interface BasicService<T> {
 
-public interface BasicService {
-
-    void add(Goal goal);
+    void add(T t);
 
     void edit();
 
     void delete(Long id);
 
-    Goal show(Long id);
+    T show(Long id);
 
-    Iterable<Goal> getAll();
+    Iterable<T> getAll();
 
 }

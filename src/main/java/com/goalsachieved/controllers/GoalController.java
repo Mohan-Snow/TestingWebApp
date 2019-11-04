@@ -4,7 +4,6 @@ import com.goalsachieved.models.Goal;
 import com.goalsachieved.models.GoalType;
 import com.goalsachieved.models.User;
 import com.goalsachieved.services.BasicService;
-import com.goalsachieved.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,12 +16,13 @@ import java.util.Map;
 @Controller
 public class GoalController {
 
-    private BasicService service;
-    private UserService userService;
+    private BasicService goalService;
+    private BasicService userService;
 
     @Autowired
-    public GoalController(@Qualifier("goalService") BasicService basicService, UserService userService) {
-        this.service = basicService;
+    public GoalController(@Qualifier("goalService") BasicService goalService,
+                          @Qualifier("userService") BasicService userService) {
+        this.goalService = goalService;
         this.userService = userService;
     }
 
@@ -49,10 +49,10 @@ public class GoalController {
         User user = new User(userName);
         userService.add(user);
 
-        service.add(new Goal(description, gType, user));
+        goalService.add(new Goal(description, gType, user));
 
         // for mapping
-        Iterable<Goal> goals = service.getAll();
+        Iterable<Goal> goals = goalService.getAll();
         model.put("goals", goals);
 //        return "redirect:/";
         return "demo";
